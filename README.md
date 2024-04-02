@@ -1,5 +1,5 @@
 # 声明
-此项目根据开源项目[vue-admin-template](https://github.com/PanJiaChen/vue-admin-template/tree/master)更改而来，主要基于该项目进行了小部分更改以便快速创建一个前端项目。
+此项目根据开源项目[vue-admin-template](https://github.com/PanJiaChen/vue-admin-template/tree/master)更改而来，主要基于该项目进行了小部分更改以便快速创建一个前端项目，你可以访问[官方文档](https://panjiachen.github.io/vue-element-admin-site/zh/guide/)获取详细信息
 # 修改内容
 * 增加容器打包配置，使用Nginx运行。
 * 更改默认的路由模式为`history`。
@@ -12,6 +12,7 @@
 * 默认开启左上角Logo。
 * 添加了部分配置、代码的注释。
 * 更改默认的业务状态码`code`值为`0`。
+* 删除模拟数据。
 # 开发环境调试
 建议使用vscode进行开发调试。
 1. 安装依赖
