@@ -11,6 +11,7 @@
 * 404页面修改。
 * 默认开启左上角Logo。
 * 添加了部分配置、代码的注释。
+* 更改默认的业务状态码`code`值为`0`。
 # 开发环境调试
 建议使用vscode进行开发调试。
 1. 安装依赖
@@ -34,8 +35,9 @@ npm run build:prod
 3. 打包镜像
 打包镜像参考`Dockerfile`文件中的配置即可，可根据自己的喜好更改。
 # 项目特殊文件说明
+* `vue.config.js`：项目基本配置信息。
 * `src/permission.js`：权限拦截器，用于校验用户是否已登录。
-* `src/utils/request.js`：后端API请求拦截器，用于处理前后端交换的请求，封装了`axios`。
+* `src/utils/request.js`：与后端交互的请求拦截器，用于处理前后端交换的请求，封装了`axios`。
 # 项目基本使用
 ## 更改页面标题
 修改`src/settings.js`文件中的`title`名称。

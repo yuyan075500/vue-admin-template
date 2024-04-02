@@ -10,43 +10,33 @@ const service = axios.create({
   timeout: 5000 // 浏览器请求超时时间，单位：毫秒
 })
 
-// request interceptor
+// 请求拦截器
 service.interceptors.request.use(
   config => {
-    // do something before request is sent
+    // 可以在此处添加发送请求前的一些操作
 
     if (store.getters.token) {
-      // let each request carry token
-      // ['X-Token'] is a custom headers key
-      // please modify it according to the actual situation
+      // 指定后端认证请求头的参数名，根据实际情况修改
       config.headers['X-Token'] = getToken()
     }
     return config
   },
   error => {
-    // do something with request error
-    console.log(error) // for debug
+    // 请求错误动作
+    console.log(error)
     return Promise.reject(error)
   }
 )
 
-// response interceptor
+// 返回拦截器
 service.interceptors.response.use(
-  /**
-   * If you want to get http information such as headers or status
-   * Please return  response => response
-  */
-
-  /**
-   * Determine the request status by custom code
-   * Here is just an example
-   * You can also judge the status by HTTP Status Code
-   */
   response => {
     const res = response.data
 
-    // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    // 指定后端返回的正确业务状态码，默认为0
+    if (res.code !== 0) {
+      // 业务状态码为0的请求处理
+
       Message({
         message: res.message || 'Error',
         type: 'error',
@@ -72,7 +62,8 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    // 返回的HTTP状态码非200的请求处理
+    console.log('err' + error)
     Message({
       message: error.message,
       type: 'error',
