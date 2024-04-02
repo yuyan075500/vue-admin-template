@@ -1,2 +1,4 @@
-# vue-admin-template
-基于vue-admin-template进行了些许改动
+# 声明
+此项目根据开源项目vue-admin-template更改而来，主要基于该项目进行了小部分更改以便快速创建一个前端项目。
+# 部署
+
